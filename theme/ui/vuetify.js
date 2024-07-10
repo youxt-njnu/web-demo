@@ -31,6 +31,9 @@ const vuetify = createVuetify({
     locale: {
         adapter: createVueI18nAdapter({ i18n, useI18n }),
     },
+    theme: {
+        defaultTheme: 'light',
+    },
     icons: {
         defaultSet: 'md',
         aliases,
