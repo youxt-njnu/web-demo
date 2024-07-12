@@ -1,9 +1,11 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+// import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+  <div>this is home view</div>
+  <!-- <nav>
+    <RouterLink to="/">Home</RouterLink>
+    <RouterLink to="/about">About</RouterLink>
+  </nav> -->
 </template>
