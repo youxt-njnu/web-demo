@@ -6,7 +6,7 @@ import Navbar from '@/components/Navbar.vue'
 
   <v-app>
     <Navbar />
-    <div class="solution-layout">
+    <div class="mt-0">
       <v-row class="hero-section">
         <v-col cols="12">
           <div class="centered-content">
@@ -19,22 +19,24 @@ import Navbar from '@/components/Navbar.vue'
 
         </v-col>
       </v-row>
-      <v-row>
-        <v-col cols="12">
-          <div class="centered-content-second">
-            <h1>WHAT IS O2O SOLUTIONS?</h1>
-            <h4> O2O Solutions is advertising through of Offline Media and Online Media to matcha<br>
 
-              with target audience lifestyle analysed by their behavioral insight dat</h4>
+    </div>
+    <v-row>
+      <v-col cols="12">
+        <div class="centered-content-second">
+          <h1>WHAT IS O2O SOLUTIONS?</h1>
+          <h4> O2O Solutions is advertising through of Offline Media and Online Media to matcha<br>
+
+            with target audience lifestyle analysed by their behavioral insight dat</h4>
+        </div>
+
+        <div class="centered-content-second">
+          <div class="solutions-img">
+            <img decoding="async"
+                 src="@/assets/img/o2o-solutions-m.png"
+                 alt="" />
           </div>
-
-          <div class="centered-content-second">
-            <div class="solutions-img">
-              <img decoding="async"
-                   src="@/assets/img/o2o-solutions-m.png"
-                   alt="" />
-            </div>
-            <!-- <div class="container-circle animatedParent animateOnce">
+          <!-- <div class="container-circle animatedParent animateOnce">
                 <div class="circle circle-sm animated fadeInLeftShort go">
                   <div class="box-inr"></div>
                   <div class="vertical-center">
@@ -182,76 +184,81 @@ import Navbar from '@/components/Navbar.vue'
                 </div>
                 <div class="circle-arw animated bounceInDown delay-750 go"></div>
               </div> -->
-            <div class="sub-heading">
-              <h2>Our O2O Solutions</h2>
-              <p>Advertise more effectively.</p>
-            </div>
-            <v-row style="width: 60%">
-              <v-col cols="3">
-                <div class="items-solutions">
-                  <div class="icon-items">
-                    <img decoding="async"
-                         src="@/assets/img/item-solutions-01.png"
-                         alt="" />
-                  </div>
-                  <h3>Targeting</h3>
-                </div>
-              </v-col>
-              <v-col cols="3">
-                <div class="items-solutions">
-                  <div class="icon-items">
-                    <img decoding="async"
-                         src="@/assets/img/item-solutions-02.png"
-                         alt="" />
-                  </div>
-                  <h3>Purchase<br />Intention</h3>
-                </div>
-              </v-col>
-              <v-col cols="3">
-                <div class="items-solutions">
-                  <div class="icon-items">
-                    <img decoding="async"
-                         src="@/assets/img/item-solutions-03.png"
-                         alt="" />
-                  </div>
-                  <h3>
-                    Right time,<br />
-                    Right place
-                  </h3>
-                </div>
-              </v-col>
-              <v-col cols="3">
-                <div class="items-solutions">
-                  <div class="icon-items">
-                    <img decoding="async"
-                         src="@/assets/img/item-solutions-04.png"
-                         alt="" />
-                  </div>
-                  <h3>Measurable</h3>
-                </div>
-              </v-col>
-            </v-row>
-
+          <div class="sub-heading">
+            <h2>Our O2O Solutions</h2>
+            <p>Advertise more effectively.</p>
           </div>
+          <v-row style="width: 60%">
+            <v-col cols="3">
+              <div class="items-solutions">
+                <div class="icon-items">
+                  <img decoding="async"
+                       src="@/assets/img/item-solutions-01.png"
+                       alt="" />
+                </div>
+                <h3>Targeting</h3>
+              </div>
+            </v-col>
+            <v-col cols="3">
+              <div class="items-solutions">
+                <div class="icon-items">
+                  <img decoding="async"
+                       src="@/assets/img/item-solutions-02.png"
+                       alt="" />
+                </div>
+                <h3>Purchase<br />Intention</h3>
+              </div>
+            </v-col>
+            <v-col cols="3">
+              <div class="items-solutions">
+                <div class="icon-items">
+                  <img decoding="async"
+                       src="@/assets/img/item-solutions-03.png"
+                       alt="" />
+                </div>
+                <h3>
+                  Right time,<br />
+                  Right place
+                </h3>
+              </div>
+            </v-col>
+            <v-col cols="3">
+              <div class="items-solutions">
+                <div class="icon-items">
+                  <img decoding="async"
+                       src="@/assets/img/item-solutions-04.png"
+                       alt="" />
+                </div>
+                <h3>Measurable</h3>
+              </div>
+            </v-col>
+          </v-row>
 
-        </v-col>
-      </v-row>
-      <v-row>
-        <div class="bg-info">
-          <p>WE ARE THE ONE AND ONLY<br>
-            020 SOLUTIONS LEADER IN THAILAND.</p>
         </div>
-      </v-row>
-      <div class="centered-content-second">
-        <h1>O2O SOLUTIONS<br>
-          IN CONSUMER DAILY LIFE.</h1>
-      </div>
 
-      <v-timeline align="center">
-        <v-timeline-item class="h-50">
+      </v-col>
+    </v-row>
+    <v-row>
+      <div class="bg-info">
+        <p>WE ARE THE ONE AND ONLY<br>
+          020 SOLUTIONS LEADER IN THAILAND.</p>
+      </div>
+    </v-row>
+    <div class="centered-content-second">
+      <h1>O2O SOLUTIONS<br>
+        IN CONSUMER DAILY LIFE.</h1>
+    </div>
+
+    <v-container class="mx-4"><v-timeline align="start"
+                  dot-color="#1C2851"
+                  line-color="#1C2851"
+                  line-thickness="4"
+                  truncate-line="both"
+                  class="h-50">
+        <v-timeline-item size="small">
           <template v-slot:opposite>
             <img src="@/assets/img/timeline-img-01.png"
-                 class="w-75"
+                 class="w-75 img-left"
                  alt="Walking past McDonald's Advertisement">
           </template>
           <div>
@@ -262,13 +269,13 @@ import Navbar from '@/components/Navbar.vue'
           </div>
         </v-timeline-item>
 
-        <v-timeline-item>
+        <v-timeline-item size="small">
           <template v-slot:opposite>
             <img src="@/assets/img/timeline-img-02.png"
-                 class="w-75"
+                 class="w-50"
                  alt="McDonald's Promotion on Facebook">
           </template>
-          <div>
+          <div class="text-right">
             <div class="text-h6">WALKING PAST MCDONALD’S ADVERTISEMENT</div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -276,10 +283,10 @@ import Navbar from '@/components/Navbar.vue'
           </div>
         </v-timeline-item>
 
-        <v-timeline-item>
+        <v-timeline-item size="small">
           <template v-slot:opposite>
             <img src="@/assets/img/timeline-img-03.png"
-                 class="w-75"
+                 class="w-50 img-left"
                  alt="McDonald's Promotion on Facebook">
           </template>
           <div>
@@ -292,10 +299,10 @@ import Navbar from '@/components/Navbar.vue'
         <v-timeline-item>
           <template v-slot:opposite>
             <img src="@/assets/img/timeline-img-04.png"
-                 class="w-75"
+                 class="w-50"
                  alt="McDonald's Promotion on Facebook">
           </template>
-          <div>
+          <div class="text-right">
             <div class="text-h6">Content title</div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -305,7 +312,7 @@ import Navbar from '@/components/Navbar.vue'
         <v-timeline-item>
           <template v-slot:opposite>
             <img src="@/assets/img/timeline-img-05.png"
-                 class="w-75"
+                 class="w-50 img-left"
                  alt="McDonald's Promotion on Facebook">
           </template>
           <div>
@@ -318,28 +325,75 @@ import Navbar from '@/components/Navbar.vue'
         <v-timeline-item>
           <template v-slot:opposite>
             <img src="@/assets/img/timeline-img-06.png"
-                 class="w-75"
+                 class="w-50"
                  alt="McDonald's Promotion on Facebook">
           </template>
-          <div>
+          <div class="text-right">
             <div class="text-h6">Content title</div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
           </div>
         </v-timeline-item>
-      </v-timeline>
-      <v-footer>Footer</v-footer>
+        <v-timeline-item>
+          <br>
+        </v-timeline-item>
+      </v-timeline></v-container>
+    <div class="brand-content">
+      <v-row>
+        <v-col cols="12">
+          <div class="text-h4 text-center font-weight-bold mt-16">
+            BRAND SUCESS STORIES
+          </div>
+        </v-col>
+      </v-row>
+      <v-row justify="center"
+             class="text-center w-75 mx-auto my-6">
+        <v-col cols="4">
+          <img src="@/assets/img/mcdonalds.jpg"
+               class="w-100">
+        </v-col>
+        <v-col cols="4">
+          <img src="@/assets/img/aeon.jpg"
+               class="w-100">
+        </v-col>
+        <v-col cols="4">
+          <img src="@/assets/img/comico.jpg"
+               class="w-100">
+        </v-col>
+      </v-row>
     </div>
+
+    <v-row>
+      <div class="bg-info">
+        <p class=" text-h4 mt-6">DATA – DRIVEN PERFORMANCE</p>
+        <video src="@/assets/video/exp.mp4"
+               autoplay
+               loop
+               muted
+               controls
+               class="w-50 my-6">
+          Sorry, your browser does not support embedded videos.
+        </video>
+      </div>
+    </v-row>
+    <v-container class="text-center my-12">
+      <p class="text-h4">FROM O2O SOLUTIONS TO POV+<br>
+        THROUGH CONSTANT DEVELOPMENT </p>
+      <p class="mx-12 my-6">In recognition of the significant opportunity to connect marketers with the most affluent consumers in the country, particularly, the office workers, VGI has launched a
+        novel solution, “VGI
+        POV+,” specifically tailored for office building media. This innovative solution serves as a vital tool for advertisers to design and execute campaigns that can most efficiently capture their
+        target audience through both offline and online channels.</p>
+      <img decoding="async"
+           src="@/assets/img/31-02-550x550.jpg"
+           class="my-6"
+           alt="" />
+    </v-container>
+    <v-footer class="footer">Footer</v-footer>
   </v-app>
 </template>
 
 <style scoped>
-.solution-layout {
-  margin-top: 0; /* 从顶部开始 */
-  /* padding-top: 70px; 内边距顶部，以防内容被 Navbar 遮挡 */
-}
-
 .hero-section {
   background-image: url('@/assets/img/hero-banner-23-03.jpg'); /* 替换为你的图片路径 */
   background-size: cover;
@@ -407,5 +461,23 @@ import Navbar from '@/components/Navbar.vue'
   padding: 20px 0; /* 上下填充 */
   font-weight: bold; /* 字体加粗 */
   line-height: 1.5; /* 行间距 */
+}
+
+.img-left {
+  display: block;
+  margin-left: auto;
+}
+
+.brand-content {
+  background-color: #f2f2f2;
+  margin-top: -5em;
+}
+
+.footer {
+  background-color: #1c2851;
+  color: white;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 0;
 }
 </style>

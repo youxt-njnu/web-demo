@@ -35,9 +35,7 @@ import { RouterLink } from 'vue-router'
   width: 100%;
   box-sizing: border-box;
 }
-/* .el-header {
-  padding: 0 50px; 
-} */
+
 .navbar {
   position: fixed;
   width: 100%; /* 确保导航栏覆盖整个屏幕宽度 */
