@@ -1,8 +1,8 @@
 import './assets/main.css'
 
-import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import { vuetify, i18n } from '../theme/ui/vuetify'
+import { createApp } from 'vue'
+import { i18n, vuetify } from '../theme/ui/vuetify'
 
 import App from './App.vue'
 import router from './router'

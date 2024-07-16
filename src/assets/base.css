@@ -34,7 +34,10 @@
   --color-text: var(--vt-c-text-light-1);
 
   --section-gap: 160px;
+
   --color-gray-background: #f8fafd;
+
+  --sidebar-width: 200px;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -1,4 +1,4 @@
-@import './base.css';
+/* @import './base.css';
 
 #app {
   max-width: 1280px;
@@ -32,4 +32,10 @@ a,
     grid-template-columns: 1fr 1fr;
     padding: 0 2rem;
   }
+} */
+@import './base.css';
+html,
+body {
+  height: 100%; /* 让根元素和 body 充满整个屏幕高度 */
+  margin: 0; /* 去除默认的边距 */
 }
