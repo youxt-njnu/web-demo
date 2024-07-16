@@ -7,12 +7,12 @@ import * as directives from 'vuetify/directives'
 import { aliases, md } from 'vuetify/iconsets/md'
 import 'vuetify/styles'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
-import '@/assets/style/main.scss'
+
 
 import { createVueI18nAdapter } from 'vuetify/locale/adapters/vue-i18n'
 import { createI18n, useI18n } from 'vue-i18n'
-import zh from "../locale/zh.js"
-import en from "../locale/en.js"
+import { zh } from "../locale/zh.js"
+import { en } from "../locale/en.js"
 
 const messages = {
     en: en,

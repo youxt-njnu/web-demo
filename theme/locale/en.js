@@ -1,8 +1,10 @@
-export default {
-    en: {
-        $vuetify: {
+export const en = {
 
+    $vuetify: {
+        homePage: {
+            title: 'HomePage'
         }
     }
+
 
 }
