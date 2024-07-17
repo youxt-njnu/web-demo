@@ -14,9 +14,8 @@ const classObj = computed(() => {
 <template>
   <div :class="classObj">
     <Sidebar class="sidebar-container" />
-    <div :class="{hasTagsView: store.needTagsView}"
-         class="main-container">
-      <div :class="{'fixed-header': store.fixedHeader}">
+    <div :class="{ hasTagsView: store.needTagsView }" class="main-container">
+      <div :class="{ 'fixed-header': store.fixedHeader }">
         <Navbar />
         <TagsView v-if="store.needTagsView" />
       </div>

@@ -1,8 +1,10 @@
-export default {
-    zh: {
-        $vuetify: {
+export const zh = {
 
+    $vuetify: {
+        homePage: {
+            title: '首页'
         }
     }
+
 
 }

@@ -1,5 +1,8 @@
-import Layout from '@/layout/index.vue'
+
 import { createRouter, createWebHistory } from 'vue-router'
+
+
+
 
 const constantRoutes = [
   {
@@ -38,23 +41,25 @@ const asyncRoutes = [
   {
     path: '/dashboard',
     name: 'Dashboard',
-    component: Layout,
+    component: () => import('../views/home/home.vue'),
     meta: { title: 'Dashboard', icon: 'Group' },
 
-    children: [
-      {
-        path: 'about',
-        name: 'About',
-        component: () => import('@/views/AboutView.vue'),
-        meta: { title: 'About', icon: 'Group' }
-      }
-    ]
+    // children: [
+    //   {
+    //     path: 'about',
+    //     name: 'About',
+    //     component: () => import('@/views/AboutView.vue'),
+    //     meta: { title: 'About', icon: 'Group' }
+    //   }
+    // ]
   }
+
 ]
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: constantRoutes.concat(asyncRoutes)
+
 })
 
 export default router
