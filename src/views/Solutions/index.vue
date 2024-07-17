@@ -31,159 +31,155 @@ import Navbar from '@/components/Navbar.vue'
         </div>
 
         <div class="centered-content-second">
-          <div class="solutions-img">
-            <img decoding="async"
-                 src="@/assets/img/o2o-solutions-m.png"
-                 alt="" />
+          <div class="container-circle">
+            <div class="circle circle-sm animated fadeInLeftShort go">
+              <div class="box-inr"></div>
+              <div class="vertical-center">
+                <div class="content-vertical-center">
+                  <div class="area-content">
+                    <h3>
+                      <div class="icon">
+                        <img decoding="async"
+                             src="@/assets/img/item-billboard.png" />
+                      </div>OFFLINE
+                    </h3>
+                    <div class="box-logo">
+                      <div class="logo-bx">
+                        <img decoding="async"
+                             src="@/assets/img/logo-vgi.png"
+                             width="48"
+                             alt="" />
+                      </div>
+                      <div class="logo-bx">
+                        <img decoding="async"
+                             src="@/assets/img/logo-demopower.png"
+                             width="92"
+                             alt="" />
+                      </div>
+                      <div class="logo-bx">
+                        <img decoding="async"
+                             src="@/assets/img/logo-turtle.png"
+                             style="width:43.5px;"
+                             alt="" />
+                      </div>
+                      <div class="logo-bx">
+                        <img decoding="async"
+                             src="@/assets/img/logo-roctec.png"
+                             width="90"
+                             alt="" />
+                      </div>
+                      <div class="logo-bx">
+                        <img decoding="async"
+                             src="@/assets/img/logo-planb.png"
+                             width="58"
+                             alt="" />
+                      </div>
+                      <div class="logo-bx">
+                        <img decoding="async"
+                             src="@/assets/img/logo-chaophraya.png"
+                             width="45"
+                             alt="" />
+                      </div>
+                    </div>
+                    <a href="#"
+                       class="linkmore">All Offline Media</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="circle circle-lg animated fadeIn go">
+              <div class="box-inr">
+                <div class="vertical-center">
+                  <div class="content-vertical-center">
+                    <div class="area-content">
+                      <h3>
+                        <i class="icon">
+                          <img decoding="async"
+                               src="@/assets/img/item-bigdata.png" /> </i>Big Data
+                      </h3>
+                      <div class="box-logo">
+                        <div class="logo-bx">
+                          <img decoding="async"
+                               src="@/assets/img/logo-turtle.png"
+                               alt=""
+                               width="60" />
+                        </div>
+                        <div class="logo-bx">
+                          <img decoding="async"
+                               src="@/assets/img/logo-rabbit-rewards-2021.png"
+                               width="110"
+                               alt="" />
+                        </div>
+                        <div class="logo-bx">
+                          <img decoding="async"
+                               src="@/assets/img/logo-rabbit-card.png"
+                               width="110"
+                               alt="" />
+                        </div>
+                        <div class="logo-bx">
+                          <img decoding="async"
+                               src="@/assets/img/logo-rabbit-care.png"
+                               width="106"
+                               alt="" />
+                        </div>
+                        <div class="logo-bx">
+                          <img decoding="async"
+                               src="@/assets/img/logo-aeon.png"
+                               width="50"
+                               alt="" />
+                        </div>
+                      </div>
+                      <a href="#"
+                         class="linkmore">Big Data Sources</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="circle circle-sm circle-right animated fadeInRightShort go">
+              <div class="box-inr"></div>
+              <div class="vertical-center">
+                <div class="content-vertical-center">
+                  <div class="area-content">
+                    <h3>
+                      <i class="icon">
+                        <img decoding="async"
+                             src="@/assets/img/item-online.png" /> </i>Online
+                    </h3>
+                    <div class="box-logo">
+                      <div class="logo-bx">
+                        <img decoding="async"
+                             src="@/assets/img/logo-rabbit-rewards-2021.png"
+                             width="110"
+                             alt="" />
+                      </div>
+                      <div class="logo-bx">
+                        <img decoding="async"
+                             src="@/assets/img/logo-iclick.png"
+                             width="100"
+                             alt="" />
+                      </div>
+                      <div class="logo-bx">
+                        <img decoding="async"
+                             src="@/assets/img/logo-anymind.png"
+                             width="110"
+                             alt="" />
+                      </div>
+                      <div class="logo-bx">
+                        <img decoding="async"
+                             src="@/assets/img/logo-vgi-dl.png"
+                             width="110"
+                             alt="" />
+                      </div>
+                    </div>
+                    <a href="#"
+                       class="linkmore">All Online Media</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="circle-arw animated bounceInDown delay-750 go"></div>
           </div>
-          <!-- <div class="container-circle animatedParent animateOnce">
-                <div class="circle circle-sm animated fadeInLeftShort go">
-                  <div class="box-inr"></div>
-                  <div class="vertical-center">
-                    <div class="content-vertical-center">
-                      <div class="area-content">
-                        <h3>
-                          <i class="icon">
-                            <img decoding="async"
-                                 src="../assets/img/item-billboard.png" /> </i>OFFLINE
-                        </h3>
-                        <div class="box-logo">
-                          <div class="logo-bx">
-                            <img decoding="async"
-                                 src="../assets/img/logo-vgi.png"
-                                 width="48"
-                                 alt="" />
-                          </div>
-                          <div class="logo-bx">
-                            <img decoding="async"
-                                 src="../assets/img/logo-demopower.png"
-                                 width="92"
-                                 alt="" />
-                          </div>
-                          <div class="logo-bx">
-                            <img decoding="async"
-                                 src="../assets/img/logo-turtle.png"
-                                 width="60"
-                                 alt="" />
-                          </div>
-                          <div class="logo-bx">
-                            <img decoding="async"
-                                 src="../assets/img/logo-roctec.png"
-                                 width="90"
-                                 alt="" />
-                          </div>
-                          <div class="logo-bx">
-                            <img decoding="async"
-                                 src="../assets/img/logo-planb.png"
-                                 width="58"
-                                 alt="" />
-                          </div>
-                          <div class="logo-bx">
-                            <img decoding="async"
-                                 src="../assets/img/logo-chaophraya.png"
-                                 width="45"
-                                 alt="" />
-                          </div>
-                        </div>
-                        <a href="#"
-                           class="linkmore">All Offline Media</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="circle circle-lg animated fadeIn go">
-                  <div class="box-inr">
-                    <div class="vertical-center">
-                      <div class="content-vertical-center">
-                        <div class="area-content">
-                          <h3>
-                            <i class="icon">
-                              <img decoding="async"
-                                   src="../assets/img/item-bigdata.png" /> </i>Big Data
-                          </h3>
-                          <div class="box-logo">
-                            <div class="logo-bx">
-                              <img decoding="async"
-                                   src="../assets/img/logo-turtle.png"
-                                   width="60"
-                                   alt="" />
-                            </div>
-                            <div class="logo-bx">
-                              <img decoding="async"
-                                   src="../assets/img/logo-rabbit-rewards-2021.png"
-                                   width="110"
-                                   alt="" />
-                            </div>
-                            <div class="logo-bx">
-                              <img decoding="async"
-                                   src="../assets/img/logo-rabbit-card.png"
-                                   width="110"
-                                   alt="" />
-                            </div>
-                            <div class="logo-bx">
-                              <img decoding="async"
-                                   src="../assets/img/logo-rabbit-care.png"
-                                   width="106"
-                                   alt="" />
-                            </div>
-                            <div class="logo-bx">
-                              <img decoding="async"
-                                   src="../assets/img/logo-aeon.png"
-                                   width="50"
-                                   alt="" />
-                            </div>
-                          </div>
-                          <a href="#"
-                             class="linkmore">Big Data Sources</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="circle circle-sm circle-right animated fadeInRightShort go">
-                  <div class="box-inr"></div>
-                  <div class="vertical-center">
-                    <div class="content-vertical-center">
-                      <div class="area-content">
-                        <h3>
-                          <i class="icon">
-                            <img decoding="async"
-                                 src="../assets/img/item-online.png" /> </i>Online
-                        </h3>
-                        <div class="box-logo">
-                          <div class="logo-bx">
-                            <img decoding="async"
-                                 src="../assets/img/logo-rabbit-rewards-2021.png"
-                                 width="110"
-                                 alt="" />
-                          </div>
-                          <div class="logo-bx">
-                            <img decoding="async"
-                                 src="../assets/img/logo-iclick.png"
-                                 width="100"
-                                 alt="" />
-                          </div>
-                          <div class="logo-bx">
-                            <img decoding="async"
-                                 src="../assets/img/logo-anymind.png"
-                                 width="110"
-                                 alt="" />
-                          </div>
-                          <div class="logo-bx">
-                            <img decoding="async"
-                                 src="../assets/img/logo-vgi-dl.png"
-                                 width="110"
-                                 alt="" />
-                          </div>
-                        </div>
-                        <a href="#"
-                           class="linkmore">All Online Media</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="circle-arw animated bounceInDown delay-750 go"></div>
-              </div> -->
           <div class="sub-heading">
             <h2>Our O2O Solutions</h2>
             <p>Advertise more effectively.</p>
@@ -249,7 +245,7 @@ import Navbar from '@/components/Navbar.vue'
         IN CONSUMER DAILY LIFE.</h1>
     </div>
 
-    <v-container class="mx-4"><v-timeline align="start"
+    <v-container><v-timeline align="start"
                   dot-color="#1C2851"
                   line-color="#1C2851"
                   line-thickness="4"
@@ -394,6 +390,7 @@ import Navbar from '@/components/Navbar.vue'
 </template>
 
 <style scoped>
+@import url('./animations.css');
 .hero-section {
   background-image: url('@/assets/img/hero-banner-23-03.jpg'); /* 替换为你的图片路径 */
   background-size: cover;
@@ -479,5 +476,175 @@ import Navbar from '@/components/Navbar.vue'
   justify-content: center;
   text-align: center;
   padding: 20px 0;
+}
+
+.container-circle {
+  position: relative;
+  margin-bottom: 100px;
+  width: 1190px;
+}
+.circle {
+  padding: 14px;
+  border-radius: 50%;
+  background-color: #fff;
+  text-align: center;
+  -webkit-transition: -webkit-transform 0.35s, color 0.35s;
+  transition: transform 0.35s, color 0.35s;
+}
+.circle-arw {
+  width: 72px;
+  height: 130px;
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  margin-left: -35px;
+  margin-top: -20px;
+  background-image: url(/assets/solutions/img/arrow-down.png);
+  background-repeat: no-repeat;
+}
+
+.circle h3 {
+  font-family: 'Avenir LT Std 65', 'db_heaventmed';
+  font-size: 24px;
+  color: #000;
+  text-transform: uppercase;
+  -webkit-transform: translateY(25px);
+  transform: translateY(25px);
+  -webkit-transition: -webkit-transform 0.35s, color 0.35s;
+  transition: transform 0.35s, color 0.35s;
+}
+.circle:hover h3 {
+  -webkit-transform: translateY(-50px);
+  transform: translateY(-50px);
+}
+.circle .area-content {
+  position: relative;
+  z-index: 25;
+  padding: 20px 20px;
+}
+.circle .icon {
+  display: block;
+  margin: 0 auto 20px;
+}
+.circle .icon img {
+  width: 25%;
+}
+.circle .logo-bx {
+  display: inline-block;
+}
+.circle .box-logo {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 10px, 0);
+  transform: translate3d(0, 10px, 0);
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: translateY(-30px);
+  transform: translateY(-30px);
+}
+.circle .box-logo .ic {
+  color: #9d9d9d;
+  font-size: 25px;
+}
+.circle:hover h3 {
+  font-size: 26px;
+}
+.circle:hover h3 .icon {
+  opacity: 0;
+}
+.circle:hover .box-logo {
+  opacity: 1;
+  height: 100%;
+}
+.circle:hover .logo-bx {
+  padding: 8px 8px;
+}
+.circle a.linkmore {
+  display: inline-block;
+  line-height: 1;
+  color: #000;
+  margin-top: -10px;
+  -webkit-transform: translateY(-50px);
+  transform: translateY(-50px);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.circle:hover a.linkmore {
+  -webkit-transform: translateY(-25px);
+  transform: translateY(-25px);
+}
+.circle-sm {
+  position: absolute;
+  top: 50%;
+  left: 120px;
+  width: 365px;
+  height: 365px;
+  margin-top: -129px;
+  border-radius: 50%;
+  z-index: 70;
+  border: 14px solid #e4491e;
+}
+.circle-sm .box-inr {
+  clip: rect(0 203px 185px 0);
+  transform: rotate(122deg);
+  position: absolute;
+  top: -14px;
+  left: -13px;
+  width: 365px;
+  height: 365px;
+  border-radius: 50%;
+  z-index: 10;
+  border: 14px solid rgba(246, 57, 0, 0.3);
+  background-color: #fff;
+}
+.circle-sm.circle-right {
+  right: 120px;
+  left: inherit;
+}
+.circle-sm.circle-right .box-inr {
+  top: -14px;
+  left: -15px;
+  clip: rect(0 201px 185px 0);
+  transform: rotate(-37deg);
+}
+.circle-sm:hover,
+.circle-sm:hover .box-inr {
+  border-color: #1c2851;
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.3);
+}
+.circle-lg {
+  position: relative;
+  z-index: 50;
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.1);
+}
+.circle-lg .box-inr {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 14px solid #e4491e;
+}
+.circle-lg .area-content {
+  padding: 60px 100px;
+}
+.circle-lg:hover .box-inr {
+  border: 14px solid #1c2851;
+}
+
+.circle-arw {
+  width: 72px;
+  height: 130px;
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  margin-left: -35px;
+  margin-top: -20px;
+  background-image: url(@/assets/img/arrow-down.png);
+  background-repeat: no-repeat;
 }
 </style>
