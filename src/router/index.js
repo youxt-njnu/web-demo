@@ -1,8 +1,4 @@
-
 import { createRouter, createWebHistory } from 'vue-router'
-
-
-
 
 const constantRoutes = [
   {
@@ -27,11 +23,15 @@ const constantRoutes = [
     meta: { title: 'LoginInfo', icon: 'Info' }
   },
   {
+    path: '/register',
+    name: 'Register',
+    component: () => import('@/views/login/register.vue'),
+    hidden: true,
+    meta: { title: 'Register', icon: 'Info' }
+  },
+  {
     path: '/404',
     name: '404',
-    // route level code-splitting
-    // this generates a separate chunk (About.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import('@/views/error-page/404.vue'),
     meta: { title: '404', icon: 'Do Not Disturb On' }
   }
@@ -42,7 +42,7 @@ const asyncRoutes = [
     path: '/dashboard',
     name: 'Dashboard',
     component: () => import('../views/home/home.vue'),
-    meta: { title: 'Dashboard', icon: 'Group' },
+    meta: { title: 'Dashboard', icon: 'Group' }
 
     // children: [
     //   {
@@ -53,13 +53,15 @@ const asyncRoutes = [
     //   }
     // ]
   }
-
 ]
 
+// 保存了上次的滚动位置
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: constantRoutes.concat(asyncRoutes)
-
+  routes: constantRoutes.concat(asyncRoutes),
+  scrollBehavior(to, from, savedPosition) {
+    return savedPosition || false
+  }
 })
 
 export default router

@@ -63,9 +63,9 @@ npm run lint
 3. 写login in的页面loginInfo.vue
    1. npm install @vuelidate/core @vuelidate/validators
 4. 继续写router的逻辑
+5. 添加中文英文的en.js的实现
 
 需要在App.vue里加上 `<RouterView />`之后才能呈现出跳转的效果
-
 
 # 知识点
 
@@ -115,7 +115,6 @@ const submitForm = () => {
 - 确保你在使用这些功能时，已经正确设置了 `rules` 和 `state`，并且你的组件逻辑能够处理异步验证的结果。
 
 这样的结构使得你可以在实际提交数据到服务器之前，确保所有用户输入都是有效的，从而提高应用的数据完整性和用户体验。
-
 
 ## useRoute和useRouter
 

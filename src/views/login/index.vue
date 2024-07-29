@@ -22,8 +22,9 @@
           <v-card-actions class="justify-end">
             <v-btn class="text-h6"
                    size="x-large"
+                   append-icon="arrow_forward"
                    @click="goToLoginInfo(type.id)">
-              注册/登录 →
+              {{ $t("$vuetify.login.getStarted") }}
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -35,29 +36,19 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
+const { tm } = useI18n()
+
 const router = useRouter()
 
-const types = [
-  {
-    id: 0,
-    name: '品牌方',
-    info: '投放广告',
-    style: 'tonal'
-  },
-  {
-    id: 1,
-    name: '合作方',
-    info: '资源合作',
-    style: 'outlined'
-  }
-]
+let types = tm('$vuetify.login.types')
 
 const color = ref('indigo-darken-4')
 
-const goToLoginInfo = (id) => {
+const goToLoginInfo = function (id) {
   // 跳转到登录信息页面
-  router.push({ name: 'LoginInfo', query: { id: id } })
+  router.push({ name: 'Register', query: { id: id } })
 }
 </script>
 

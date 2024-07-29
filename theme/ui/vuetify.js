@@ -11,8 +11,8 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import { createI18n, useI18n } from 'vue-i18n'
 import { createVueI18nAdapter } from 'vuetify/locale/adapters/vue-i18n'
 
-import { zh } from '../locale/zh.js'
 import { en } from '../locale/en.js'
+import { zh } from '../locale/zh.js'
 
 const messages = {
   en: en,

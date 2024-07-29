@@ -1,5 +1,32 @@
 <script setup>
 import Navbar from '@/components/Navbar.vue'
+import { onMounted, onUnmounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
+let router = useRouter()
+
+const isVisible = ref(false)
+
+const handleScroll = () => {
+  const element = document.querySelector('.animate-on-scroll')
+  if (element) {
+    const rect = element.getBoundingClientRect()
+    const isInView = rect.top <= window.innerHeight && rect.bottom >= 0
+    isVisible.value = isInView
+  }
+}
+
+const goToRegister = () => {
+  router.push({ name: 'Login' })
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+  handleScroll() // Initial check on mount
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 
 <template>
@@ -9,12 +36,15 @@ import Navbar from '@/components/Navbar.vue'
     <div class="mt-0">
       <v-row class="hero-section">
         <v-col cols="12">
-          <div class="centered-content">
+          <div class="centered-content animated-text">
             <h1>SUCCESSFULLY ADVERTISE<br>
               MORE THAN EVER</h1>
             <br>
             <h2> BY O2O SOLUTIONS, TO CONNECT WITH CUSTOMERS AT EVERY TOUCHPOINT<br>
               TO OPTIMIZE BRAND CAMPAIGNS FOR MAXIMUM RESULTS.</h2>
+            <v-card-actions><v-btn append-icon="arrow_right"
+                     size="x-large"
+                     @click="goToRegister">开始试用</v-btn></v-card-actions>
           </div>
 
         </v-col>
@@ -254,10 +284,10 @@ import Navbar from '@/components/Navbar.vue'
         <v-timeline-item size="small">
           <template v-slot:opposite>
             <img src="@/assets/img/timeline-img-01.png"
-                 class="w-75 img-left"
+                 class="w-75 img-left slide-from-right"
                  alt="Walking past McDonald's Advertisement">
           </template>
-          <div>
+          <div class="slide-from-left">
             <div class="text-h6">WALKING PAST MCDONALD’S ADVERTISEMENT</div>
             <p>
               Out-of-Home and Online Media synchronization.
@@ -267,11 +297,11 @@ import Navbar from '@/components/Navbar.vue'
 
         <v-timeline-item size="small">
           <template v-slot:opposite>
-            <img src="@/assets/img/timeline-img-02.png"
-                 class="w-50"
+            <img class="w-75 slide-from-left"
+                 src="@/assets/img/timeline-img-02.png"
                  alt="McDonald's Promotion on Facebook">
           </template>
-          <div class="text-right">
+          <div class="text-right slide-from-right">
             <div class="text-h6">WALKING PAST MCDONALD’S ADVERTISEMENT</div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -282,10 +312,10 @@ import Navbar from '@/components/Navbar.vue'
         <v-timeline-item size="small">
           <template v-slot:opposite>
             <img src="@/assets/img/timeline-img-03.png"
-                 class="w-50 img-left"
+                 class="w-75 img-left slide-from-right"
                  alt="McDonald's Promotion on Facebook">
           </template>
-          <div>
+          <div class="slide-from-left">
             <div class="text-h6">Content title</div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -295,10 +325,10 @@ import Navbar from '@/components/Navbar.vue'
         <v-timeline-item>
           <template v-slot:opposite>
             <img src="@/assets/img/timeline-img-04.png"
-                 class="w-50"
+                 class="w-75 slide-from-left"
                  alt="McDonald's Promotion on Facebook">
           </template>
-          <div class="text-right">
+          <div class="text-right slide-from-right">
             <div class="text-h6">Content title</div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -308,10 +338,10 @@ import Navbar from '@/components/Navbar.vue'
         <v-timeline-item>
           <template v-slot:opposite>
             <img src="@/assets/img/timeline-img-05.png"
-                 class="w-50 img-left"
+                 class="w-50 img-left slide-from-right"
                  alt="McDonald's Promotion on Facebook">
           </template>
-          <div>
+          <div class="slide-from-left">
             <div class="text-h6">Content title</div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -321,10 +351,10 @@ import Navbar from '@/components/Navbar.vue'
         <v-timeline-item>
           <template v-slot:opposite>
             <img src="@/assets/img/timeline-img-06.png"
-                 class="w-50"
+                 class="w-50 slide-from-left"
                  alt="McDonald's Promotion on Facebook">
           </template>
-          <div class="text-right">
+          <div class="text-right slide-from-right">
             <div class="text-h6">Content title</div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -392,7 +422,7 @@ import Navbar from '@/components/Navbar.vue'
 <style scoped>
 @import url('./animations.css');
 .hero-section {
-  background-image: url('@/assets/img/hero-banner-23-03.jpg'); /* 替换为你的图片路径 */
+  background-image: url('@/assets/img/hero-banner-23-03.jpg');
   background-size: cover;
   background-position: center;
   height: 100vh; /* 设置高度为视口高度 */
@@ -407,17 +437,72 @@ import Navbar from '@/components/Navbar.vue'
   height: 100%;
   color: white; /* 设置文本颜色为白色 */
   text-align: center;
+  overflow: hidden;
 }
 .centered-content h1 {
   font-size: 3em; /* 较大的字体大小 */
   font-weight: bold; /* 粗体 */
-  margin-bottom: 0.1em; /* 添加一些底部外边距 */
+  margin-bottom: 0.1em;
+  animation: slideUpText 1s ease-out forwards;
 }
 
 .centered-content h2 {
   font-size: 1.5em; /* 较小的字体大小 */
-  font-weight: normal; /* 正常字重 */
-  opacity: 0.8; /* 使文字稍微透明，区分主副标题 */
+  font-weight: normal;
+  animation: slideUpText-second 1s ease-out forwards;
+}
+@keyframes slideUpText {
+  0% {
+    transform: translateY(100%); /* 从底部开始 */
+    opacity: 0; /* 开始时透明 */
+  }
+  100% {
+    transform: translateY(0); /* 结束于正常位置 */
+    opacity: 1; /* 完全不透明 */
+  }
+}
+
+@keyframes slideUpText-second {
+  0% {
+    transform: translateY(100%); /* 从底部开始 */
+    opacity: 0; /* 开始时透明 */
+  }
+  100% {
+    transform: translateY(0); /* 结束于正常位置 */
+    opacity: 0.8; /* 完全不透明 */
+  }
+}
+
+/* 从右向左动画 */
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* 从左向右动画 */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-from-right {
+  animation: slideInFromRight 1s ease-in-out forwards;
+}
+
+.slide-from-left {
+  animation: slideInFromLeft 1s ease-out forwards;
 }
 
 .centered-content-second {
@@ -429,6 +514,80 @@ import Navbar from '@/components/Navbar.vue'
   color: black;
   text-align: center;
   margin-top: 3em;
+}
+
+.container-circle {
+  position: relative;
+  margin-bottom: 100px;
+  width: 1190px;
+}
+.circle {
+  padding: 14px;
+  border-radius: 50%;
+  background-color: #fff;
+  text-align: center;
+  -webkit-transition: -webkit-transform 0.35s, color 0.35s;
+  transition: transform 0.35s, color 0.35s;
+}
+
+.circle-sm {
+  position: absolute;
+  top: 50%;
+  left: 120px;
+  width: 365px;
+  height: 365px;
+  margin-top: -129px;
+  border-radius: 50%;
+  z-index: 70;
+  border: 14px solid #e4491e;
+}
+.circle-sm .box-inr {
+  clip: rect(0 203px 185px 0);
+  transform: rotate(122deg);
+  position: absolute;
+  top: -14px;
+  left: -13px;
+  width: 365px;
+  height: 365px;
+  border-radius: 50%;
+  z-index: 10;
+  border: 14px solid rgba(246, 57, 0, 0.3);
+  background-color: #fff;
+}
+.circle-sm.circle-right {
+  right: 120px;
+  left: inherit;
+}
+.circle-sm.circle-right .box-inr {
+  top: -14px;
+  left: -15px;
+  clip: rect(0 201px 185px 0);
+  transform: rotate(-37deg);
+}
+.circle-sm:hover,
+.circle-sm:hover .box-inr {
+  border-color: #1c2851;
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.3);
+}
+.circle-lg {
+  position: relative;
+  z-index: 50;
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.1);
+}
+.circle-lg .box-inr {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 14px solid #e4491e;
+}
+.circle-lg .area-content {
+  padding: 60px 100px;
+}
+.circle-lg:hover .box-inr {
+  border: 14px solid #1c2851;
 }
 
 .centered-content-second h1 {
@@ -478,19 +637,6 @@ import Navbar from '@/components/Navbar.vue'
   padding: 20px 0;
 }
 
-.container-circle {
-  position: relative;
-  margin-bottom: 100px;
-  width: 1190px;
-}
-.circle {
-  padding: 14px;
-  border-radius: 50%;
-  background-color: #fff;
-  text-align: center;
-  -webkit-transition: -webkit-transform 0.35s, color 0.35s;
-  transition: transform 0.35s, color 0.35s;
-}
 .circle-arw {
   width: 72px;
   height: 130px;
@@ -573,65 +719,6 @@ import Navbar from '@/components/Navbar.vue'
 .circle:hover a.linkmore {
   -webkit-transform: translateY(-25px);
   transform: translateY(-25px);
-}
-.circle-sm {
-  position: absolute;
-  top: 50%;
-  left: 120px;
-  width: 365px;
-  height: 365px;
-  margin-top: -129px;
-  border-radius: 50%;
-  z-index: 70;
-  border: 14px solid #e4491e;
-}
-.circle-sm .box-inr {
-  clip: rect(0 203px 185px 0);
-  transform: rotate(122deg);
-  position: absolute;
-  top: -14px;
-  left: -13px;
-  width: 365px;
-  height: 365px;
-  border-radius: 50%;
-  z-index: 10;
-  border: 14px solid rgba(246, 57, 0, 0.3);
-  background-color: #fff;
-}
-.circle-sm.circle-right {
-  right: 120px;
-  left: inherit;
-}
-.circle-sm.circle-right .box-inr {
-  top: -14px;
-  left: -15px;
-  clip: rect(0 201px 185px 0);
-  transform: rotate(-37deg);
-}
-.circle-sm:hover,
-.circle-sm:hover .box-inr {
-  border-color: #1c2851;
-  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.3);
-}
-.circle-lg {
-  position: relative;
-  z-index: 50;
-  width: 500px;
-  height: 500px;
-  margin: 0 auto;
-  box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.1);
-}
-.circle-lg .box-inr {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  border: 14px solid #e4491e;
-}
-.circle-lg .area-content {
-  padding: 60px 100px;
-}
-.circle-lg:hover .box-inr {
-  border: 14px solid #1c2851;
 }
 
 .circle-arw {

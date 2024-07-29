@@ -10,9 +10,33 @@
              cover></v-img> -->
         <a href="#"
            class="my-4 logo"></a>
-        <h1>{{ $t('$vuetify.LoginInfo.title') }}</h1>
-        <p>{{ $t('$vuetify.LoginInfo.subTitle') }}</p>
+        <h1>{{ $t('$vuetify.Register.title') }}</h1>
+        <p>{{ $t('$vuetify.Register.subTitle') }}</p>
         <br>
+        <v-text-field v-if="selected === '0'"
+                      v-model="state.name"
+                      :counter="10"
+                      :error-messages="v$.name.$errors.map(e => e.$message)"
+                      label="用户名称"
+                      required
+                      @blur="v$.name.$touch"
+                      @input="v$.name.$touch"></v-text-field>
+        <v-text-field v-else
+                      v-model="state.name"
+                      :counter="10"
+                      :error-messages="v$.name.$errors.map(e => e.$message)"
+                      label="企业名称"
+                      required
+                      @blur="v$.name.$touch"
+                      @input="v$.name.$touch">
+        </v-text-field>
+        <v-text-field v-if="selected === '1'"
+                      v-model="state.idInfo"
+                      hit="请输入企业信用编码"
+                      label="企业信用编码"
+                      required
+                      type="input">
+        </v-text-field>
         <v-text-field v-model="state.email"
                       :error-messages="v$.email.$errors.map(e => e.$message)"
                       label="邮箱地址"
@@ -21,10 +45,18 @@
                       @input="v$.email.$touch"></v-text-field>
         <v-text-field v-model="state.password"
                       :error-messages="v$.password.$errors.map(e => e.$password)"
-                      label="密码/验证码"
+                      label="密码"
                       required
                       @blur="v$.password.$touch"
                       @input="v$.password.$touch"></v-text-field>
+        <!-- <v-select v-model="state.select"
+                :error-messages="v$.select.$errors.map(e => e.$message)"
+                :items="items"
+                label="Item"
+                required
+                @blur="v$.select.$touch"
+                @change="v$.select.$touch"></v-select> -->
+
         <v-checkbox v-model="state.checkbox"
                     :error-messages="v$.checkbox.$errors.map(e => e.$message)"
                     label="是否同意协议？"
@@ -89,7 +121,7 @@
         <br>
         <v-card-actions><v-btn prepend-icon="arrow_right"
                  size="x-large"
-                 @click="goToRegister">{{ $t("$vuetify.LoginInfo.introLogin") }}</v-btn></v-card-actions>
+                 @click="goToLogin">{{ $t("$vuetify.Register.introRegister") }}</v-btn></v-card-actions>
         <br>
       </v-container>
     </div>
@@ -101,14 +133,19 @@
 <script setup>
 import { useVuelidate } from '@vuelidate/core'
 import { email, required } from '@vuelidate/validators'
-import { reactive } from 'vue'
-import { useRouter } from 'vue-router'
-
+import { onMounted, reactive, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+const route = useRoute()
 const router = useRouter()
 
+let selected = ref('')
+
 const initialState = {
+  name: '',
   email: '',
   password: '',
+  idInfo: '',
+  select: null,
   checkbox: null
 }
 
@@ -116,9 +153,13 @@ const state = reactive({
   ...initialState
 })
 
+// const items = ['Item 1', 'Item 2', 'Item 3', 'Item 4']
+
 const rules = {
+  name: { required },
   email: { required, email },
   password: { required },
+  // select: { required },
   checkbox: { required }
 }
 
@@ -141,9 +182,13 @@ function clear() {
   }
 }
 
-const goToRegister = function () {
-  router.push({ name: 'Login' })
+const goToLogin = function () {
+  router.push({ name: 'LoginInfo' })
 }
+
+onMounted(() => {
+  selected.value = route.query.id
+})
 </script>
 
 <style>
