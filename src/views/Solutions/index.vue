@@ -1,32 +1,51 @@
 <script setup>
-import Navbar from '@/components/Navbar.vue'
-import { onMounted, onUnmounted, ref } from 'vue'
-import { useRouter } from 'vue-router'
+import Navbar from '@/components/Navbar.vue';
+import { useIntersectionObserver } from '@vueuse/core';
+import { onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router';
+
 let router = useRouter()
 
-const isVisible = ref(false)
+let refContent = ref(null)
+let isVisible = ref(false)
 
-const handleScroll = () => {
-  const element = document.querySelector('.animate-on-scroll')
-  if (element) {
-    const rect = element.getBoundingClientRect()
-    const isInView = rect.top <= window.innerHeight && rect.bottom >= 0
-    isVisible.value = isInView
-  }
-}
+let refLine = ref(null)
+let ifLineVisible = ref(false)
+
+// const isInViewport = (elem) => {
+//   const bounding = elem.getBoundingClientRect();
+//   return (
+//     bounding.top >= 0 &&
+//     bounding.left >= 0 &&
+//     bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+//     bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+//   );
+// };
+
+// let scrollListener = () => {
+//   if (isInViewport(refContent.value)) {
+//     isVisible.value = true;
+//   } else {
+//     isVisible.value = false;
+//   }
+// };
+
+onMounted(() => {
+  // window.addEventListener('scroll', scrollListener);
+
+  useIntersectionObserver(refContent, ([{ isIntersecting }]) => {
+    isVisible.value = isIntersecting;
+  });
+
+  useIntersectionObserver(refLine, ([{ isIntersecting }]) => {
+    ifLineVisible.value = isIntersecting;
+  });
+})
 
 const goToRegister = () => {
   router.push({ name: 'Login' })
 }
 
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
-  handleScroll() // Initial check on mount
-})
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll)
-})
 </script>
 
 <template>
@@ -36,7 +55,9 @@ onUnmounted(() => {
     <div class="mt-0">
       <v-row class="hero-section">
         <v-col cols="12">
-          <div class="centered-content animated-text">
+          <div class="centered-content">
+            <!-- <div :class="[{active: false},centered-content]"> -->
+            <!-- <div :class="[isVisible?centered-content:'',animated-text]"> -->
             <h1>SUCCESSFULLY ADVERTISE<br>
               MORE THAN EVER</h1>
             <br>
@@ -60,9 +81,9 @@ onUnmounted(() => {
             with target audience lifestyle analysed by their behavioral insight dat</h4>
         </div>
 
-        <div class="centered-content-second">
+        <div ref="refContent" class="centered-content-second">
           <div class="container-circle">
-            <div class="circle circle-sm animated fadeInLeftShort go">
+            <div :class="['circle','circle-sm', {'animated':isVisible},{'fadeInLeftShort':isVisible},{'go':isVisible}]">
               <div class="box-inr"></div>
               <div class="vertical-center">
                 <div class="content-vertical-center">
@@ -117,7 +138,7 @@ onUnmounted(() => {
                 </div>
               </div>
             </div>
-            <div class="circle circle-lg animated fadeIn go">
+            <div :class="['circle','circle-lg', {'animated':isVisible},{'fadeIn':isVisible},{'go':isVisible}]">
               <div class="box-inr">
                 <div class="vertical-center">
                   <div class="content-vertical-center">
@@ -166,7 +187,7 @@ onUnmounted(() => {
                 </div>
               </div>
             </div>
-            <div class="circle circle-sm circle-right animated fadeInRightShort go">
+            <div :class="['circle','circle-sm', 'circle-right', {'animated':isVisible},{'fadeInRightShort':isVisible},{'go':isVisible}]">
               <div class="box-inr"></div>
               <div class="vertical-center">
                 <div class="content-vertical-center">
@@ -208,7 +229,8 @@ onUnmounted(() => {
                 </div>
               </div>
             </div>
-            <div class="circle-arw animated bounceInDown delay-750 go"></div>
+            <!-- <div class="circle-arw animated bounceInDown delay-750 go"></div> -->
+            <div :class="['circle-arw',{'animated': isVisible},{'bounceInDown':isVisible},{'delay-750':isVisible},{'go':isVisible}]"></div>
           </div>
           <div class="sub-heading">
             <h2>Our O2O Solutions</h2>
@@ -275,8 +297,8 @@ onUnmounted(() => {
         IN CONSUMER DAILY LIFE.</h1>
     </div>
 
-    <v-container><v-timeline align="start"
-                  dot-color="#1C2851"
+    <div  ref = "refLine" > <v-container><v-timeline
+                  align="start"
                   line-color="#1C2851"
                   line-thickness="4"
                   truncate-line="both"
@@ -284,10 +306,11 @@ onUnmounted(() => {
         <v-timeline-item size="small">
           <template v-slot:opposite>
             <img src="@/assets/img/timeline-img-01.png"
-                 class="w-75 img-left slide-from-right"
+                 :class="['w-75','img-left',{'slide-from-right':ifLineVisible}]"
                  alt="Walking past McDonald's Advertisement">
           </template>
-          <div class="slide-from-left">
+          <div
+               :class="{'slide-from-left':ifLineVisible}">
             <div class="text-h6">WALKING PAST MCDONALD’S ADVERTISEMENT</div>
             <p>
               Out-of-Home and Online Media synchronization.
@@ -295,13 +318,14 @@ onUnmounted(() => {
           </div>
         </v-timeline-item>
 
-        <v-timeline-item size="small">
+        <v-timeline-item  size="small">
           <template v-slot:opposite>
-            <img class="w-75 slide-from-left"
+            <img class="w-75" :class="{'slide-from-left':ifLineVisible}"
                  src="@/assets/img/timeline-img-02.png"
                  alt="McDonald's Promotion on Facebook">
           </template>
-          <div class="text-right slide-from-right">
+          <div :class="['text-right',{'slide-from-right':ifLineVisible}]">
+            <!-- 要加引号，对于text-right, silide-from-right  -->
             <div class="text-h6">WALKING PAST MCDONALD’S ADVERTISEMENT</div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -312,10 +336,10 @@ onUnmounted(() => {
         <v-timeline-item size="small">
           <template v-slot:opposite>
             <img src="@/assets/img/timeline-img-03.png"
-                 class="w-75 img-left slide-from-right"
+                 :class="['w-75','img-left',{'slide-from-right':ifLineVisible}]"
                  alt="McDonald's Promotion on Facebook">
           </template>
-          <div class="slide-from-left">
+          <div :class="{'slide-from-left':ifLineVisible}">
             <div class="text-h6">Content title</div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -325,10 +349,10 @@ onUnmounted(() => {
         <v-timeline-item>
           <template v-slot:opposite>
             <img src="@/assets/img/timeline-img-04.png"
-                 class="w-75 slide-from-left"
+                 :class="['w-75',{'slide-from-left':ifLineVisible}]"
                  alt="McDonald's Promotion on Facebook">
           </template>
-          <div class="text-right slide-from-right">
+          <div :class="['text-right',{'slide-from-right':ifLineVisible}]">
             <div class="text-h6">Content title</div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -338,7 +362,7 @@ onUnmounted(() => {
         <v-timeline-item>
           <template v-slot:opposite>
             <img src="@/assets/img/timeline-img-05.png"
-                 class="w-50 img-left slide-from-right"
+                 :class="['w-50','img-left',{'slide-from-right':ifLineVisible}]"
                  alt="McDonald's Promotion on Facebook">
           </template>
           <div class="slide-from-left">
@@ -351,10 +375,10 @@ onUnmounted(() => {
         <v-timeline-item>
           <template v-slot:opposite>
             <img src="@/assets/img/timeline-img-06.png"
-                 class="w-50 slide-from-left"
+                 :class="['w-50',{'slide-from-left':ifLineVisible}]"
                  alt="McDonald's Promotion on Facebook">
           </template>
-          <div class="text-right slide-from-right">
+          <div :class="['text-right',{'slide-from-left':ifLineVisible}]">
             <div class="text-h6">Content title</div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -364,7 +388,8 @@ onUnmounted(() => {
         <v-timeline-item>
           <br>
         </v-timeline-item>
-      </v-timeline></v-container>
+      </v-timeline></v-container></div>
+    
     <div class="brand-content">
       <v-row>
         <v-col cols="12">
@@ -421,6 +446,15 @@ onUnmounted(() => {
 
 <style scoped>
 @import url('./animations.css');
+
+:deep(.v-timeline .v-timeline-divider__dot) {
+  background: #1c2851 !important;
+}
+
+:deep(.v-timeline .v-timeline-divider__dot .v-timeline-divider__inner-dot) {
+  background: #ffffff !important;
+}
+
 .hero-section {
   background-image: url('@/assets/img/hero-banner-23-03.jpg');
   background-size: cover;
@@ -469,7 +503,7 @@ onUnmounted(() => {
   }
   100% {
     transform: translateY(0); /* 结束于正常位置 */
-    opacity: 0.8; /* 完全不透明 */
+    opacity: 0.8;
   }
 }
 
@@ -502,7 +536,7 @@ onUnmounted(() => {
 }
 
 .slide-from-left {
-  animation: slideInFromLeft 1s ease-out forwards;
+  animation: slideInFromLeft 1s ease-in-out forwards;
 }
 
 .centered-content-second {
